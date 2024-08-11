@@ -1,0 +1,36 @@
+[package]
+name = "fourier"
+version = "0.1.0"
+authors = ["Caleb Zulawski <caleb.zulawski@gmail.com>"]
+license = "MIT OR Apache-2.0"
+description = "Fast Fourier transforms (FFTs)"
+repository = "https://github.com/calebzulawski/fourier"
+categories = ["algorithms", "mathematics", "multimedia::audio", "science"]
+readme = "README.md"
+edition = "2018"
+include = [
+    "/Cargo.toml",
+    "/LICENSE-APACHE",
+    "/LICENSE-MIT",
+    "/README.md",
+    "/src/**",
+    "/tests/**/*.rs",
+    "/tests/**/*.json",
+]
+keywords = ["fft", "fourier", "transform"]
+
+[features]
+default = ["std"]
+std = ["fourier-algorithms/std", "fourier-macros/std"]
+alloc = []
+
+[dependencies]
+fourier-algorithms = { path = "../fourier-algorithms", version = "0.1.0", default-features = false }
+fourier-macros = { path = "../fourier-macros", version = "0.1.0", default-features = false }
+num-complex = { version = "0.2", default-features = false }
+
+[dev-dependencies]
+num-traits = { version = "0.2", default-features = false, features = ["libm"] }
+float-cmp = "0.6"
+rand = "0.7"
+rand_distr = "0.2"

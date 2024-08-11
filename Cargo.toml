@@ -1,0 +1,13 @@
+[workspace]
+
+members = [
+    "fourier",
+    "fourier-algorithms",
+    "fourier-bench",
+    "fourier-ffi",
+    "fourier-macros",
+    "fourier-prof",
+]
+
+[profile.release]
+lto = true
